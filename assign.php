@@ -1,22 +1,10 @@
 <?php
 include "config.php";
-$sql1="SELECT firstname,middlename,lastname,age,gender FROM patient WHERE id=id";
-$ressalt=$conn->query($sql1);
-$firstname="";
-$middlename="";
-$lastname="";
-$age="";
-$gender = "";
-$row=$ressalt->fetch_assoc();
-while ($row=$ressalt->fetch_assoc()) {
-$firstname=$row['firstname'];
-$middlename=$row['middlename'];
-$lastname=$row['lastname'];
-$age=$row['age'];
-$gender=$row['gender'];
+$pid="";
+if (isset($_GET['idAssign'])) {
+$pid=	$_GET['idAssign'];
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -41,105 +29,107 @@ $gender=$row['gender'];
    
   <div class="jumbotron col-md-8 ">
 	<h2 class="bg-sm bg-info ">&nbsp;&nbsp;&nbsp;Assigned patient.</h2><br>
-	<div class="row panel-group">
-				<form   action ="assign_php.php" method="POST">
-				<div class="row">
+		<form action = "assign_insert.php" method="POST">
+            <div class="row">
 					<div class="col-sm-12 ">
-						<input type="hidden"  name="id" id="#edit-<?php echo $row['id']; ?>" class="form-control" value="<?php 
-                            echo $row['id']; ?>">			
+						<input type="hidden"  name="id" value="<?php echo  $pid; ?>" 
+						class="form-control" value="<?php 
+						//	echo $row['id']; ?>">	
+				</div>		
 											
-						
-						<div class="col-sm-8 form-group">
-						<label  for="sel1">DOCTORS</label>
-		  <select class="form-control" id="sel1" name = "doctors" placeholder="select the doctors Name Here..">
-			<option>dr mustafe farax isse</option>
-			<option>dr muuse ali nur</option>
-			<option>drs fadima gele ali</option>
-			<option>dr nuur farax omar</option>
-			<option>drs nafisa gele ali</option>
-			<option>drs aliya gele ali</option>
-			<option>dr ciise ali nur</option>
-			<option>dr ali abdi nur</option>
-			<option>dr mohamad ali nur</option>
+			<div class="col-sm-8 form-group">
+			<label  for="sel1">DOCTORS</label>
+						<select  class="form-control" id="fullname" 
+					name = "doctor" placeholder="select the doctors Name Here..">
+						<?php
+						//Doctor Query 
+						$sql = "select fullname from doctor";
+						$result = $conn->query($sql);
+						if($result->num_rows >0){
+							while($row = $result->fetch_assoc()){?>
+								<option value="<?php echo $row['fullname']; ?>"><?php echo $row['fullname']; 
+								?></option>
+							<?php }
+						}
+						?>
+					</select>
 			
-		  </select>
-						</div>	
-							<div class="col-sm-4 form-group">
-								<label>TITLES</label>
-								<select class="form-control" id="sel1" name = "title" placeholder="select the title Name Here..">
-			<option>sergery</option>
-			<option>midical</option>
-			<option>phamcist</option>
-			<option>general diseas</option>
-			<option>dilivery</option>
-			<option>psygology</option>
-			<option>dentiste</option>
-		  </select>
-           </div><br><br><br>
-
-           <!-- <div class="col-sm-4 form-group"> -->
-				<!-- <label>first name</label>
-				<input type="text" placeholder="Enter the Firstname Here.." class="form-control"name = "address">
-				</div>
-                <div class="col-sm-4 form-group">
-				<label>middle name</label>
-				<input type="text" placeholder="Enter the middlename Here.." class="form-control"name = "address">
-				</div> -->
-                <div class="col-sm-4 form-group">
-				<label>first name </label>
-				<input type="text" placeholder="Enter the first name .." class="form-control" name = "firstname" value="<?php 
-                            echo $firstname; ?>">
-				</div>
-				<div class="col-sm-4 form-group">
-				<label>middle name </label>
-				<input type="text" placeholder="Enter the middle name ." class="form-control" name = "middlename" value="<?php 
-                            echo $middlename; ?>">
-				</div>
-				<div class="col-sm-4 form-group">
-				<label>last name </label>
-				<input type="text" placeholder="Enter the last name Here.." class="form-control" name = "lastname" value="<?php 
-                            echo $lastname; ?>">
-				</div>
-
-                		
-					
 						
-                <div class="col-sm-6 form-group">
+						<script>
+                                /// waa midka sameynaya dropdown items-ka
+                                $(document).ready(function(){
+                                    $("#fullname").on("change", function(){
+                                    var P_ID = $(this).val();
+                                    if(P_ID){
+                                        $.get(
+                                            "doctorTitle.php",
+                                            {fullname: P_ID},
+                                            function(data){
+                                                $("#title").val(data);
+                                            }
+                                        );
+                                        
+                                    }
+                                        else{
+                                            $("#title").html("enter");
+                                        }
+                                });
+                                });
+                            </script></div>
+						<div class="col-sm-4 form-group">
+						   <label>TITLES</label>
+							<input type="text" class="form-control" id="title" name = "title" placeholder="select the title Name Here..">
+						</div> 
+					                
+						<?php 
+						 include "assignByid.php";
+						?>
+				<!-- <input type="hidden" name = "id" value="<//?php echo $id; ?>"> -->
+			<div class="col-sm-4 form-group">
+					<label>first name </label>
+				<input type="text" placeholder="Enter the first name .." class="form-control" name = "firstname" value="<?php echo $firstname; ?>">
+			</div>
+            <div class="col-sm-4 form-group">
+				<label>middle name </label>
+				<input type="text" placeholder="Enter the middle name ." class="form-control" name = "middlename" value="<?php 	echo $middlename; ?>">
+			</div>
+			<div class="col-sm-4 form-group">
+					   <label>last name </label>
+			           <input type="text" placeholder="Enter the last name Here.." 
+					   class="form-control" name = "lastname" value="<?php echo $lastname; ?>">
+			</div>
+            <div class="col-sm-6 form-group">
 				<label>age</label>
-				<input type="text" placeholder="Enter the age Here.." class="form-control" name = "age" value="<?php 
-                            echo $age; ?>">
-				</div>
-            
+				<input type="text" placeholder="Enter the age Here.."class="form-control" name = "age" value="<?php echo $age;?>">
+			</div>
             <div class="col-sm-6  form-group">
-						<label  for="sel1">gender</label>
-						<input type="text" placeholder="Enter the age Here.." class="form-control" name = "gender" value="<?php 
-                            echo $gender; ?>">
-                     </div>
+				<label  for="sel1">gender</label>
+				<input type="text" placeholder="Enter the age Here.." class="form-control" name = "gender" value="<?php echo $gender; ?>">
+		    </div>
           <div class="col-sm-12 form-group"><br>
-          <label>PATIENT TYPE </label>
-          &nbsp;&nbsp;&nbsp;<input type="radio" value="OUT PATIENT" name = "pateint" cheched="1">OUT PATIENT
-          &nbsp; &nbsp;&nbsp;<input type="radio" value="EMERGENCY" name = "pateint" cheched="1">EMERGENCY
-          &nbsp;&nbsp;&nbsp;<input type="radio" value="PATIENT" name = "pateint" cheched="1">PATIENT
+				<label>PATIENT TYPE </label>
+				&nbsp;&nbsp;&nbsp;<input type="radio" value="OUT PATIENT" name = "patient" >OUT PATIENT
+				&nbsp; &nbsp;&nbsp;<input type="radio" value="EMERGENCY" name = "patient" >EMERGENCY
+				&nbsp;&nbsp;&nbsp;<input type="radio" value="PATIENT" name = "patient" >PATIENT
           </div>		
 		
-				<div class=" col-sm-4">	
-						<button type="reset" class="btn btn-lg btn-success" name = "reset">Reset</button>	
-				</div>
-				<div class=" col-sm-4"> <a href="start.php" class="btn btn-lg btn-danger">Cancel</a> </div>
-				<div class="col-sm-4">	
-				<button type="submit" class="btn btn-lg btn-info" name = "assign">save</button>
-				</div>
-				</form> 
-                <!--
-                <div class="panel panel-default">
-                    <div class="panel-heading">Panel with panel-default class</div>
-                    <div class="panel-body">Panel Content</div>
-                </div> -->
-
-
-				</div>
+		<div class=" col-sm-4">	
+		<button type="reset" class="btn btn-lg btn-success" name = "reset">Reset</button>	
+		</div>
+		<div class=" col-sm-4"> <a href="start.php" class="btn btn-lg btn-danger">Cancel</a> </div>
+		<div class="col-sm-4">
+	    <button name="save" type = "submit"  class="btn btn-lg btn-info">save</button> 
+		</div>
+		</div>
+		 </form> 
+     </div>
 	</div>
 	</div>
     
   </body>
 </html>
+
+
+
+
+

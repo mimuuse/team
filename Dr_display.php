@@ -23,30 +23,22 @@
   <body>
   <div class="container">
   <br>
-  <div class="jumbotron col-md-7 col-md-offset-2">
-	<h2 class="bg-sm bg-info ">&nbsp;&nbsp;&nbsp;doctor info</h2><br>
-	<div class="row panel-group">
+  <div class="container">
+  <div class = "panel panel-primary col-md-9">
+		 <div class="panel-heading"><h5>doctor info </h5></div>
+		 <div class="panel-body col-sm-12">
 				<form  action = "Dr_insert.php" method="POST">
 					<div class="col-sm-12 ">
 						<div class="row">
 							<div class="col-sm-12 form-group">
-								<label>Full Name</label>
-								<input type="text" placeholder="Enter Full Name Here.." class="form-control"
-								 name = "fullname" required>
+								<label for "fullname">Full Name</label>
+								<input type="text" id = "fullname" placeholder="Enter Full Name Here.." class="form-control"
+								 name = "fullname"  pattern="[A-Za-z\s]*" require>
 							</div>
-							<!-- <div class="col-sm-4 form-group">
-								<label>Middle Name</label>
-								<input type="text" placeholder="Enter Last Name Here.." class="form-control"name = "middleName">
-							</div>
-							<div class="col-sm-4 form-group">
-								<label>Last Name</label>
-								<input type="text" placeholder="Enter Last Name Here.." class="form-control"name = "lastName">
-							</div> -->
-											
-						
 						<div class="col-sm-6 form-group">
 						<label  for="sel1">Town</label>
-		  <select class="form-control" id="sel1" name = "town" placeholder="select the city Name Here..">
+		  <select class="form-control" id="sel1" name = "town" placeholder="select the city Name Here.." 
+		  pattern = "[A-Za-z]">
 			<option>muqdisho</option>
 			<option>hargaisa</option>
 			<option>bosaso</option>
@@ -63,7 +55,7 @@
 						</div>	
 							<div class="col-sm-6 form-group">
 								<label>age</label>
-								<input type="number" placeholder="Enter age Here" class="form-control"name = "age">
+								<input type="number" placeholder="Enter age Here" class="form-control"name = "age"  pattern = ".{3,}">
 							</div>	
 							<div class="col-sm-6 form-group">
 								<label>Date of birth</label>
@@ -73,7 +65,7 @@
 				
 							<div class="col-sm-6 form-group">
 								<label>Address</label>
-								<input type="text" placeholder="Enter the Address Here.." class="form-control"name = "address">
+								<input type="text"   pattern="[A-Za-z\s]{10,30}*" placeholder="Enter the Address Here.." class="form-control"name = "address">
 							</div>		
 							<div class="col-sm-6  form-group">
 							<label  for="sel1">title</label>
@@ -118,11 +110,11 @@
 						
 								
 				<div class=" col-sm-4">	
-						<button type="reset" class="btn btn-lg btn-success" name = "reset">Reset</button>	
+						<button type="reset" class="btn btn-md btn-success" name = "reset">Reset</button>	
 				</div>
-				<div class=" col-sm-4"> <a href="start.php" class="btn btn-lg btn-danger">Cancel</a> </div>
+				<div class=" col-sm-4"> <a href="start.php" class="btn btn-md btn-danger">Cancel</a> </div>
 				<div class="col-sm-4">	
-						<button type="submit" class="btn btn-lg btn-info" name = "Dr_regestor">Registor</button>
+						<button type="submit" class="btn btn-md btn-info" name = "Dr_regestor">Registor</button>
 				</div>
 				</form> 
                 <!--

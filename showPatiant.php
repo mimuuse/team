@@ -119,7 +119,10 @@
                             </div>
                         </div>
                         <a href="?idDelete=<?php echo $row['id'] ?>"><button name="delete" type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>Delete</button></a>
-                        <a  href="assign_display.php ?id_assign=<?php echo $row['id'] ?>"><button name "" type "submit" class="btn bnt-sm btn-info"><i class="fa fa-user "></i>Assign</button></a>  
+                        <a href="assign.php?idAssign=<?php echo $row['id'] ?>"  
+                        class="btn bnt-sm btn-info"><i class="fa fa-user"></i> assign</a>  
+                        
+                        
                     </td>
                 </tr>
                   

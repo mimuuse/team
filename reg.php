@@ -30,7 +30,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <![endif]-->
 
   <!-- Google Font -->
-
+<style>
+p{
+  text-align:center;
+  font-size:17px;
+}
+</style>
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -147,6 +152,7 @@ desired effect
         <li class="active"><a href="start.php"><i class="fa fa-link"></i> <span>HOME</span></a></li>
         <li><a href="modify.php"><i class="fa fa-link"></i> <span>PATIANT INFO</span></a></li>
          <li><a href="Dr_show.php"><i class="fa fa-th"></i> <span>DOCTORS</span></a></li>
+         <li><a href="assign_table.php"><i class="fa fa-circle"></i> <span>PATIENT ASSIGN</span></a></li>
         <li class="treeview">
           <!--<a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
             <span class="pull-right-container">
@@ -198,25 +204,26 @@ $occ = ""; $phone = ""; $status = ""; $gender = "";
 <div class="container">
   <br>
    
-	<div class="col-lg-8  well">
-	<h1 class="bg-info ">&nbsp;&nbsp;&nbsp;Pateint registration Form</h1><br>
-	<div class="row panel-group">
+  <div class="container">
+   <div class = "panel panel-primary col-md-9">
+          <div class="panel-heading"><p>pateint registration form </p></div>
+          <div class="panel-body col-sm-12">
 						<div class="row">
               <div class="col-sm-12">
               <form  action = "insert.php" method="POST">
 							<div class="col-sm-4 form-group">
 								<label>First Name</label>
-								<input type="text" placeholder="Enter First Name Here.." 
+								<input type="text"  pattern="[A-Za-z\s]{10,30}*" placeholder="Enter First Name Here.." 
                 class="form-control" name = "firstname"  value="<?php echo($fname);?>">
 							</div>
 							<div class="col-sm-4 form-group">
 								<label>Middle Name</label>
-								<input type="text" placeholder="Enter Last Name Here.."
+								<input type="text"   pattern="[A-Za-z\s]{10,30}*" placeholder="Enter Last Name Here.."
                 class="form-control"name = "middlename"  value="<?php echo($mname);?>">
 							</div>
 							<div class="col-sm-4 form-group">
 								<label>Last Name</label>
-								<input type="text" placeholder="Enter Last Name Here.."
+								<input type="text"  pattern="[A-Za-z\s]{10,30}*" placeholder="Enter Last Name Here.."
                  class="form-control"name = "lastname"  value="<?php echo($lname);?>">
 							</div>
 												
@@ -253,7 +260,7 @@ $occ = ""; $phone = ""; $status = ""; $gender = "";
 				
 							<div class="col-sm-6 form-group">
 								<label>Address</label>
-								<input type="text" placeholder="Enter the Address Here.."
+								<input type="text"  pattern="[A-Za-z\s]{10,30}*" placeholder="Enter the Address Here.."
                  class="form-control"name = "address"  value="<?php echo($address);?>">
 							</div>	
 						
@@ -276,23 +283,15 @@ $occ = ""; $phone = ""; $status = ""; $gender = "";
                         <!--confirm buttun-->
 						</div>	
 						<div class="pull-right">	
-						<button type="submit" class="btn btn-lg btn-info" name = "registor">Registor</button>
+						<button type="submit" class="btn btn-md btn-info" name = "registor">Registor</button>
 				</div>	
 				<div class="pull-left">	
-						<button type="reset" class="btn btn-lg btn-success" name = "reset">Reset</button>	
+						<button type="reset" class="btn btn-md btn-success" name = "reset">Reset</button>	
 				</div>
-				<div class="text-center"> <a href="start.php" class="btn btn-lg btn-danger">Cancel</a> </div>
+				<div class="text-center"> <a href="start.php" class="btn btn-md btn-danger">Cancel</a> </div>
                           		
                         </div>
-				</form> 
-
-                <!--
-                <div class="panel panel-default">
-                    <div class="panel-heading">Panel with panel-default class</div>
-                    <div class="panel-body">Panel Content</div>
-                </div> -->
-
-
+				</form>
 				</div>
 	</div>
 	</div>

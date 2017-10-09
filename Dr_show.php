@@ -184,6 +184,7 @@ desired effect
         <li class="active"><a href="start.php"><i class="fa fa-link"></i> <span>HOME</span></a></li>
         <li><a href="modify.php"><i class="fa fa-link"></i> <span>PATIANT INFO</span></a></li>
          <li><a href="Dr_show.php"><i class="fa fa-th"></i> <span>DOCTORS</span></a></li>
+         <li><a href="assign_table.php"><i class="fa fa-circle"></i> <span>PATIENT ASSIGN</span></a></li>
         <li class="treeview">
           <!--<a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
             <span class="pull-right-container">

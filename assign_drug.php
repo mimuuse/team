@@ -1,9 +1,9 @@
 <?php
 include "config.php";
-session_start();
-if(!isset($_SESSION['username'])){
+// session_start();
+// if(!isset($_SESSION['username'])){
   // header("location:login.php");
-}
+// }
 
 ?>
 <!DOCTYPE html>
@@ -231,7 +231,7 @@ desired effect
 |---------------------------------------------------------|-->
 
 <?php 
-//  include("config.php"); 
+ include "assign_pre.php"; 
 ?>
 
     </section>

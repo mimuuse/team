@@ -75,9 +75,9 @@
                     <td><?php echo $row["gender"]; ?></td>
                     <td>
                     
-                 <button type="submit" class="btn btn-success" data-toggle="modal" 
+                 <button type="submit" class="btn btn-sm btn-success" data-toggle="modal" 
                  data-target="#edit-<?php echo $row['id']; ?>" id="">
-                 <i class="fa fa-pencil fa-lg"></i> Edit</button>
+                 <i class="fa fa-pencil"></i> Edit</button>
                     <div class="modal fade" role="dialog" id="edit-<?php echo $row['id']; ?>">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -117,7 +117,9 @@
                         </div>
 
                         <a onclick ="return confirm('are you sure to delete')" href="Dr_delete.php?idd=<?php echo $row['id'] ?>"  
-                        class="btn btn-danger"><i class="fa fa-trash fa-lg"></i> Delete</a>    
+                        class="btn bnt-sm btn-danger"><i class="fa fa-trash"></i> Delete</a>  
+                        <a href="?idd=<?php echo $row['id'] ?>"  
+                          
                     </td>
                 </tr>
                   

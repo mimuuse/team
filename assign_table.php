@@ -162,38 +162,14 @@ desired effect
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
 
-      <!-- Sidebar user panel (optional) -->
-
-      <!-- search form (Optional) -->
-      <!--<form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-          <span class="input-group-btn">
-              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-              </button>
-            </span>
-        </div>
-      </form>-->
-      <!-- /.search form -->
-
-      <!-- Sidebar Menu -->
+  
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU HEADER</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="start.php"><i class="fa fa-link"></i> <span>HOME</span></a></li>
         <li><a href="modify.php"><i class="fa fa-link"></i> <span>PATIANT INFO</span></a></li>
          <li><a href="Dr_show.php"><i class="fa fa-th"></i> <span>DOCTORS</span></a></li>
-        <li class="treeview">
-          <!--<a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-          </a>-->
-          <!--<ul class="treeview-menu">
-            <li><a href="#">Link in level 2</a></li>
-            <li><a href="#">Link in level 2</a></li>
-          </ul>-->
-        </li>
+         <li><a href="assign_table.php"><i class="fa fa-circle"></i> <span>PATIENT ASSIGN</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -206,28 +182,14 @@ desired effect
     <section class="content-header">
       <h1>
         
-          <li><a href="#"><i class="fa fa-user"></i> Assigned patient</a></li>
+          <a href="#"><i class="fa fa-user"></i> Assigned patient</a>
        
       </h1>
     </section>
 
     <!-- Main content -->
     <section class="content container-fluid">
-<!--
-     |---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|-->
+
 
 <?php 
  include("assign_Dr.php"); 
@@ -324,8 +286,6 @@ desired effect
   immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
-<!-- ./wrapper -->
-
 <!-- REQUIRED JS SCRIPTS -->
 
 <!-- jQuery 3 -->
@@ -334,9 +294,5 @@ desired effect
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
-
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. -->
 </body>
 </html>
